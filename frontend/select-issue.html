@@ -1,0 +1,122 @@
+<!-- frontend/select-issue.html -->
+<!DOCTYPE html>
+<html lang="en"> <!-- Or your primary language: ar/fr -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mezan - AI Legal Chat</title>
+    <!-- Poppins Font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+
+        <header class="main-header">
+            <!-- Copy the exact header structure from index.html -->
+            <div class="container header-container">
+                <div class="logo-container">
+                    <a href="index.html" class="logo-link">
+                        <img src="assets/images/logo.png" alt="Mezan Logo Icon" class="logo-icon">
+                        <span class="logo-text">MEZAN</span>
+                    </a>
+                </div>
+                <nav class="navbar">
+                    <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation menu"
+                        aria-expanded="false">
+                        <span class="menu-icon-bar"></span>
+                        <span class="menu-icon-bar"></span>
+                        <span class="menu-icon-bar"></span>
+                    </button>
+                    <ul class="nav-links" id="nav-links">
+                        <li><a href="index.html" class="nav-link">Home</a></li> <!-- Link back to homepage -->
+                        <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+                        <li><a href="select-issue.html" class="nav-link active-page">AI Chat</a></li>
+                        <!-- Mark as active -->
+                        <li><a href="about.html" class="nav-link">About Us</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="#login" class="btn btn-login">Login</a>
+                    <a href="#signup" class="btn btn-signup">Sign up</a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Category Selection Section -->
+            <section class="category-selection-section">
+                <div class="container category-selection-container">
+                    <div class="category-selection-header">
+                        <!-- Headings matching Image 3 -->
+                        <span class="subheading">Welcome to Mezan's Legal Consultation.</span>
+                        <h1 class="section-heading">We're here to provide you with expert guidance for your legal case.
+                        </h1>
+                        <p class="section-description">To best assist you, please select the category that best fits
+                            your situation.</p>
+                    </div>
+
+                    <!-- Category Buttons Grid (matching Image 3 layout) -->
+                    <div class="issue-grid" id="issue-grid">
+                        <button class="issue-card" data-category="Accident Law">
+                            <h2>Accident Law</h2>
+                        </button>
+                        <button class="issue-card" data-category="Divorce Law">
+                            <h2>Divorce Law</h2>
+                        </button>
+                        <button class="issue-card" data-category="Criminal Law">
+                            <h2>Criminal Law</h2>
+                        </button>
+                        <button class="issue-card" data-category="Family Law">
+                            <h2>Family Law</h2>
+                        </button>
+                        <button class="issue-card" data-category="Business Law">
+                            <h2>Business Law</h2>
+                        </button>
+                        <button class="issue-card" data-category="Property Law">
+                            <h2>Property Law</h2>
+                        </button>
+                    </div>
+
+                    <!-- Chat Interface Placeholder (This HTML section remains the same as before) -->
+                    <div id="chat-interface" class="chat-container" style="display: none;">
+                        <h2 class="chat-title">Chat about <span id="chat-category-title"></span></h2>
+                        <div id="chat-box" class="chat-box">
+                            <!-- Chat messages will appear here -->
+                        </div>
+                        <div class="chat-input-area">
+                            <input type="text" id="user-input" placeholder="Ask your question here...">
+                            <button id="send-button">Send</button>
+                        </div>
+                        <p class="chat-disclaimer"><small><strong>Important:</strong> This AI chat provides general
+                                information for educational purposes only and is NOT legal advice. Consult a qualified
+                                Algerian lawyer for your specific situation.</small></p>
+                        <!-- Button to go back to category selection -->
+                        <button id="back-to-categories" class="btn btn-secondary" style="margin-top: 20px;">Back to
+                            Categories</button>
+                    </div>
+
+                </div>
+                <!-- Background Gradient/Effect Pseudo-element handled by CSS -->
+            </section>
+        </main>
+
+        <!-- Footer Content (Copy from index.html once done) -->
+        <footer class="main-footer">
+            <!-- Footer Content Placeholder -->
+        </footer>
+
+    </div> <!-- End .page-wrapper -->
+
+    <!-- Link both JS files -->
+    <script src="js/nav-script.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

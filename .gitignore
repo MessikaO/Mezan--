@@ -1,0 +1,26 @@
+<<<<<<< HEAD
+# Ignore Python virtual environments at the root if any
+venv/
+
+# Ignore the entire data directory at the root level
+/data/
+
+# Ignore IDE specific files (example for VS Code)
+.vscode/
+
+# Ignore OS specific files
+.DS_Store # macOS
+Thumbs.db # Windows
+
+# Ignore backend specific ignores if they are in the backend folder
+# (The backend folder has its own .gitignore)
+/backend/venv/
+/backend/.env
+=======
+venv/
+.env
+__pycache__/
+*.pyc
+# Ignore ChromaDB persistent data directory
+data/vector_store/
+>>>>>>> 0b320edf63c596df5794ba3a3f218d9adeaf9aa3
