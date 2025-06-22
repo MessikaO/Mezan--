@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>البحث - ميزان</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kufam:ital,wght@0,400..900;1,400..900&family=Lexend+Deca:wght@100..900&family=Ruwudu:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/rtl.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="main-header">
+            <div class="container header-container">
+                <div class="logo-container">
+                    <a href="index-ar.html" class="logo-link">
+                        <img src="assets/images/logo.png" alt="شعار ميزان" class="logo-icon">
+                        <span class="logo-text ruwudu-bold">ميزان</span>
+                    </a>
+                </div>
+                <nav class="navbar">
+                    <button id="menu-toggle" class="menu-toggle" aria-label="تبديل قائمة التنقل" aria-expanded="false">
+                        <span class="menu-icon-bar"></span>
+                        <span class="menu-icon-bar"></span>
+                        <span class="menu-icon-bar"></span>
+                    </button>
+                    <ul class="nav-links" id="nav-links">
+                        <li><a href="index-ar.html" class="nav-link lexend-deca-regular">الرئيسية</a></li>
+                        <li><a href="how-it-works-ar.html" class="nav-link lexend-deca-regular">كيف يعمل</a></li>
+                        <li><a href="select-issue-ar.html" class="nav-link lexend-deca-regular">المحادثة الذكية</a></li>
+                        <li><a href="search-page-ar.html" class="nav-link lexend-deca-regular active-page">البحث</a>
+                        </li>
+                        <li><a href="about-ar.html" class="nav-link lexend-deca-regular">من نحن</a></li>
+                        <li><a href="contact-ar.html" class="nav-link lexend-deca-regular">اتصل بنا</a></li>
+                    </ul>
+                </nav>
+                <div class="lang-switch">
+                    <a href="search-page.html" class="btn btn-lang lexend-deca-regular">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="search-section">
+                <div class="container">
+                    <h1 class="section-title kufam-bold">البحث في القوانين</h1>
+                    <div class="search-container">
+                        <div class="search-box">
+                            <input type="text" id="search-input" class="search-input lexend-deca-regular"
+                                placeholder="ابحث عن قوانين أو مواد قانونية...">
+                            <button class="search-button" aria-label="بحث">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                        <div class="search-filters">
+                            <div class="filter-group">
+                                <label for="category-filter" class="filter-label kufam-semibold">الفئة:</label>
+                                <select id="category-filter" class="filter-select lexend-deca-regular">
+                                    <option value="">الكل</option>
+                                    <option value="civil">القانون المدني</option>
+                                    <option value="criminal">القانون الجنائي</option>
+                                    <option value="commercial">القانون التجاري</option>
+                                    <option value="family">قانون الأسرة</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label for="year-filter" class="filter-label kufam-semibold">السنة:</label>
+                                <select id="year-filter" class="filter-select lexend-deca-regular">
+                                    <option value="">الكل</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="search-results">
+                        <!-- Search results will be dynamically inserted here by search-ar.js -->
+                    </div>
+
+                    <div class="pagination">
+                        <button class="pagination-button" aria-label="الصفحة السابقة">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <span class="pagination-info lexend-deca-regular">الصفحة 1 من 5</span>
+                        <button class="pagination-button" aria-label="الصفحة التالية">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="main-footer">
+            <div class="container footer-container">
+                <div class="footer-col footer-col-logo">
+                    <img src="assets/images/logo.png" alt="شعار ميزان في التذييل" class="footer-logo-image">
+                    <span class="logo-text footer-logo-text ruwudu-bold">ميزان</span>
+                    <p class="footer-copyright lexend-deca-regular">© 2024-2025 ميزان. جميع الحقوق محفوظة.</p>
+                </div>
+                <div class="footer-col footer-col-links">
+                    <h4 class="footer-heading kufam-semibold">روابط</h4>
+                    <ul>
+                        <li><a href="#" class="lexend-deca-regular">الأشخاص</a></li>
+                        <li><a href="#" class="lexend-deca-regular">وسائل التواصل الاجتماعي</a></li>
+                        <li><a href="#" class="lexend-deca-regular">العدادات</a></li>
+                        <li><a href="contact-ar.html" class="lexend-deca-regular">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-col-company">
+                    <h4 class="footer-heading kufam-semibold">الشركة</h4>
+                    <ul>
+                        <li><a href="#" class="lexend-deca-regular">الشروط والأحكام</a></li>
+                        <li><a href="#" class="lexend-deca-regular">سياسة الخصوصية</a></li>
+                        <li><a href="about-ar.html" class="lexend-deca-regular">من نحن</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-col-contact">
+                    <h4 class="footer-heading kufam-semibold">تواصل معنا</h4>
+                    <ul>
+                        <li>
+                            <p class="lexend-deca-regular">الجلفة، الجزائر</p>
+                        </li>
+                        <li>
+                            <p class="lexend-deca-regular">+213 783 308 435</p>
+                        </li>
+                        <li><a href="mailto:info@mezan.net" class="lexend-deca-regular">info@mezan.net</a></li>
+                    </ul>
+                </div>
+                <div class="footer-disclaimer lexend-deca-regular">
+                    <strong class="kufam-semibold">تنويه:</strong> يقدم ميزان حاليا معلومات عامة فقط بناءً على القانون
+                    الجزائري وليس بديلاً عن النصيحة القانونية المهنية من محامٍ مؤهل. استشر محامياً متخصصاً لحالتك
+                    الخاصة.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/nav-script.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/search-ar.js"></script>
+</body>
+
+</html>

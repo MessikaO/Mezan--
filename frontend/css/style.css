@@ -6,16 +6,25 @@
 }
 
 :root {
+    --primary-color: #2C3E50;
+    --secondary-color: #3498DB;
+    --accent-color: #E74C3C;
+    --text-color: #333333;
+    --light-gray: #F5F6FA;
+    --white: #FFFFFF;
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+
     --primary-dark-bg: #0A0C16;
     /* Deep navy/almost black from design */
-    --text-light: #E0E0E0;
+    --text-light: #FFFFFF;
     /* Off-white text */
-    --text-secondary: #B0B0B0;
+    --text-secondary: #A0A3B1;
     /* Lighter grey for secondary text */
-    --accent-gold: #CAA85D;
+    --accent-gold: #DCBB5A;
     /* The prominent gold color */
-    --accent-gold-darker: #B88A4D;
-    --accent-gold-rgb: 202, 168, 93;
+    --accent-gold-darker: #B89A4A;
+    --accent-gold-rgb: 220, 187, 90;
     /* RGB for rgba() */
 
     --border-color-subtle: rgba(255, 255, 255, 0.1);
@@ -24,9 +33,14 @@
     /* Standard dark shadow */
     --shadow-subtle: rgba(0, 0, 0, 0.1);
 
+    --card-bg: #1A1D2E;
+    --input-bg: #2A2D3E;
 
     /* Typography - Using Poppins */
     --font-primary: 'Poppins', sans-serif;
+    --gradient-primary: linear-gradient(135deg, rgba(220, 187, 90, 0.1) 0%, rgba(26, 29, 46, 0.95) 100%);
+    --gradient-secondary: linear-gradient(135deg, rgba(26, 29, 46, 0.95) 0%, rgba(220, 187, 90, 0.1) 100%);
+    --gradient-accent: linear-gradient(135deg, #DCBB5A 0%, #B89A4A 100%);
 }
 
 body {
@@ -42,10 +56,9 @@ body {
 }
 
 .page-wrapper {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    /* Add overall background gradient/pattern here if it covers the whole page behind everything */
 }
 
 .container {
@@ -70,220 +83,438 @@ img {
 
 /* === HEADER & NAVIGATION === */
 .main-header {
-    background-color: var(--primary-dark-bg);
-    padding: 15px 0;
-    /* Vertical padding */
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    right: 0;
     z-index: 1000;
-    border-bottom: 1px solid var(--border-color-subtle);
-    transition: background-color 0.3s ease;
+    background: var(--gradient-primary);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.logo-container a {
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-link {
     display: flex;
     align-items: center;
     text-decoration: none;
+    gap: 0.5rem;
 }
 
 .logo-icon {
-    height: 30px;
-    /* Adjust icon size */
-    margin-right: 8px;
-    /* Space between icon and text */
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
 }
 
 .logo-text {
-    font-family: var(--font-primary);
-    font-size: 1.4rem;
-    font-weight: 600;
     color: var(--text-light);
+    font-size: 1.4rem;
+    font-weight: 400;
     letter-spacing: 0.5px;
+    font-family: 'Lexend Deca', sans-serif;
 }
 
 .navbar {
     display: flex;
     align-items: center;
-    flex-grow: 1;
-    justify-content: center;
-    /* Center the nav links */
 }
 
 .nav-links {
-    list-style: none;
     display: flex;
-    align-items: center;
+    gap: 2rem;
+    list-style: none !important;
     margin: 0;
     padding: 0;
 }
 
 .nav-links li {
-    margin: 0 15px;
-    /* Space around each nav link */
+    list-style: none !important;
+    margin: 0;
+    padding: 0;
 }
 
-.nav-links .nav-link {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    font-weight: 500;
+.nav-links li::before {
+    display: none !important;
+}
+
+.nav-links li::after {
+    display: none !important;
+}
+
+.nav-link {
+    color: #fff;
     text-decoration: none;
-    padding: 10px 0;
-    position: relative;
+    font-weight: 500;
     transition: color 0.3s ease;
+    position: relative;
 }
 
-.nav-links .nav-link:hover,
-.nav-links .nav-link.active-page {
-    /* JS will add .active-page */
-    color: var(--accent-gold);
-    /* Gold color on hover/active */
-}
-
-/* Subtle indicator on hover/active (dot/dash) */
-.nav-links .nav-link::after {
+.nav-link::after {
     content: '';
     position: absolute;
-    bottom: 5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 6px;
+    bottom: -5px;
+    left: 0;
+    width: 0;
     height: 2px;
-    background-color: var(--accent-gold);
-    opacity: 0;
-    transition: all 0.3s ease;
+    background: var(--accent-gold);
+    transition: width 0.3s ease;
 }
 
-.nav-links .nav-link:hover::after,
-.nav-links .nav-link.active-page::after {
-    width: 20px;
-    opacity: 1;
+.nav-link:hover::after,
+.nav-link.active-page::after {
+    width: 100%;
 }
-
 
 .auth-buttons {
     display: flex;
     align-items: center;
-    margin-left: 20px;
-    /* Space between nav and auth buttons */
+    gap: 1rem;
 }
 
-.btn {
-    /* Base button style */
-    padding: 8px 18px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    border: 1px solid transparent;
-    cursor: pointer;
-    text-align: center;
-    display: inline-block;
+.language-switch {
+    display: flex;
+    align-items: center;
 }
 
-.btn-login {
-    background-color: transparent;
-    color: var(--text-secondary);
-    margin-right: 10px;
-}
-
-.btn-login:hover {
-    color: var(--text-light);
-}
-
-.btn-signup {
-    background-color: transparent;
-    color: var(--accent-gold);
-    border-color: var(--accent-gold);
-}
-
-.btn-signup:hover {
-    background-color: var(--accent-gold);
-    color: var(--primary-dark-bg);
-}
-
-/* --- Hamburger Menu (Hidden on Desktop) --- */
-.menu-toggle {
-    display: none;
-    /* Hidden on desktop */
-    background: none;
+.language-btn {
+    background: rgba(255, 255, 255, 0.1);
     border: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
     cursor: pointer;
-    padding: 10px;
-    z-index: 1001;
-    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.3s ease;
 }
 
-.menu-icon-bar {
-    display: block;
-    width: 25px;
-    height: 2px;
-    background-color: var(--text-light);
-    margin: 5px 0;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+.language-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
 
-.menu-toggle.active .menu-icon-bar:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+.language-btn i {
+    font-size: 1rem;
 }
 
-.menu-toggle.active .menu-icon-bar:nth-child(2) {
-    opacity: 0;
+.current-lang {
+    font-weight: 500;
 }
 
-.menu-toggle.active .menu-icon-bar:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+/* Footer Styles */
+.main-footer {
+    background: var(--gradient-primary);
+    position: relative;
+    overflow: hidden;
+    padding: 60px 0 20px;
 }
 
+.main-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(220, 187, 90, 0.05)"/></svg>');
+    opacity: 0.5;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-section h3 {
+    color: var(--text-light);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: var(--accent-gold);
+}
+
+.footer-section p {
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-gold);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 40px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(220, 187, 90, 0.1);
+}
+
+.footer-bottom p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        padding: 1rem;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--gradient-primary);
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .logo-icon {
+        height: 30px;
+    }
+
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
+    .language-switch {
+        margin-top: 10px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
 
 /* === MAIN CONTENT PADDING (because of fixed header) === */
 main {
-    /* Adjust padding based on header height */
-    padding-top: 60px;
-    flex-grow: 1;
+    margin-top: 80px;
+    /* Height of the fixed header */
+    flex: 1;
     position: relative;
-    overflow: hidden;
-    /* To contain pseudo-elements or background effects */
 }
 
 /* === HERO SECTION (IMAGE 1) === */
 .hero-section {
-    position: relative;
     padding: 80px 0;
-    /* Top/bottom padding */
+    position: relative;
+    background: var(--gradient-secondary);
     overflow: hidden;
-    /* Background effect handled by pseudo-element */
 }
 
-/* Background Gradient/Effect for Hero Section */
-/* This is tricky with just CSS. Often done with an SVG, a background image, or multiple pseudo-elements/background gradients */
-.hero-section::before {
-    /* Example using a pseudo-element for the glowing effect */
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+}
+
+.hero-heading {
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.btn-primary {
+    background: transparent;
+    color: var(--accent-gold);
+    padding: 0.9rem 2.2rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.4s ease;
+    border: 2px solid var(--accent-gold);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 160px;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.1);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+.btn-primary::before {
     content: '';
     position: absolute;
     top: 0;
-    /* Adjust vertical position */
-    right: 0;
-    /* Position to the right */
-    width: 60%;
-    /* Adjust size of the glow */
+    left: -100%;
+    width: 100%;
     height: 100%;
-    /* Creating the golden gradient blur effect */
-    background: radial-gradient(circle at 90% 10%, rgba(var(--accent-gold-rgb), 0.3) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: 0;
-    /* Behind the content */
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 215, 0, 0.2),
+            transparent);
+    transition: 0.5s;
 }
 
-/* You might need another pseudo-element for the left side glow */
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--accent-gold);
+    padding: 0.9rem 2.2rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.4s ease;
+    border: 2px solid var(--accent-gold);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 160px;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.1);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 215, 0, 0.2),
+            transparent);
+    transition: 0.5s;
+}
+
+.btn-secondary:hover::before {
+    left: 100%;
+}
+
+.hero-image {
+    flex: 1;
+    max-width: 500px;
+}
+
+.hero-illustration {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    background: radial-gradient(circle at 90% 10%, rgba(var(--accent-gold-rgb), 0.15) 0%, transparent 60%);
+    pointer-events: none;
+}
+
 .hero-section::after {
     content: '';
     position: absolute;
@@ -291,132 +522,258 @@ main {
     left: 0;
     width: 40%;
     height: 100%;
-    background: radial-gradient(circle at 10% 90%, rgba(var(--accent-gold-rgb), 0.2) 0%, transparent 60%);
+    background: radial-gradient(circle at 10% 90%, rgba(var(--accent-gold-rgb), 0.1) 0%, transparent 60%);
     pointer-events: none;
-    z-index: 0;
 }
 
-
-.hero-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    /* Space between columns */
-    flex-wrap: wrap;
-    /* Allow stacking on mobile */
+/* === FEATURES SECTION (Example New Section on Homepage) === */
+.features-section {
+    padding: 80px 0;
+    position: relative;
+    background: var(--gradient-secondary);
+    overflow: hidden;
 }
 
-.hero-content-left {
-    flex: 1;
-    min-width: 300px;
-    /* Minimum width for text block */
-    max-width: 55%;
-    /* Control max width on desktop */
-    text-align: left;
-    z-index: 1;
-    /* Ensure content is above background effects */
-}
-
-.hero-subheading {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--accent-gold);
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-    /* Increased letter spacing */
-    text-transform: uppercase;
-    opacity: 0.8;
-    /* Slightly less prominent */
-}
-
-.hero-heading {
-    font-size: 3.5rem;
-    /* Larger heading size */
+.section-heading {
+    text-align: center;
+    font-size: 2.5rem;
     font-weight: 700;
     color: var(--text-light);
-    line-height: 1.2;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
-.hero-paragraph {
-    font-size: 1.05rem;
-    /* Paragraph text size */
-    color: var(--text-secondary);
-    margin-bottom: 30px;
-    max-width: 550px;
-    /* Control paragraph width */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
-.hero-buttons {
-    display: flex;
-    gap: 15px;
-    /* Space between buttons */
-}
-
-/* Hero Button Styles (Matching Figma) */
-.btn-hero {
-    padding: 12px 30px;
-    /* Larger padding */
-    border-radius: 6px;
-    font-weight: 500;
-    font-size: 1rem;
-    transition: all 0.3s ease;
+.feature-card {
+    background: rgba(26, 29, 46, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(220, 187, 90, 0.1);
+    border-radius: 15px;
+    padding: 40px 30px;
     text-align: center;
-    display: inline-block;
-    border: 1px solid var(--border-color-subtle);
-    background-color: var(--input-bg);
-    /* Darker background */
-    color: var(--text-light);
-    /* Light text color */
-    /* Optional: Add a subtle shadow */
-    box-shadow: 0 2px 5px var(--shadow-subtle);
+    transition: all 0.3s ease;
 }
 
-.btn-hero:hover {
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    border-color: rgba(220, 187, 90, 0.3);
+}
+
+.feature-icon {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-accent);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.feature-icon i {
+    font-size: 2.8rem;
+    color: var(--primary-dark-bg);
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1);
+}
+
+.feature-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.feature-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.feature-description {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        padding: 0.8rem 1.8rem;
+        font-size: 0.95rem;
+        min-width: unset;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-col {
+        flex-basis: 100%;
+    }
+}
+
+/* === SEARCH PAGE SPECIFIC STYLES === */
+.search-section {
+    padding: 80px 0;
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.search-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.search-content {
+    margin-bottom: 40px;
+}
+
+.search-bar-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 15px 20px;
+    border: 1px solid var(--border-color-subtle);
+    border-radius: 8px;
+    background-color: var(--input-bg);
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+.search-input::placeholder {
+    color: var(--text-secondary);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+}
+
+.search-button {
+    padding: 15px 30px;
     background-color: var(--accent-gold);
     color: var(--primary-dark-bg);
-    /* Dark text on gold hover */
-    border-color: var(--accent-gold);
-    box-shadow: 0 4px 8px rgba(var(--accent-gold-rgb), 0.2);
-    /* Gold shadow on hover */
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.btn-hero:active {
-    transform: translateY(1px);
-    /* Press effect */
-    box-shadow: 0 1px 3px var(--shadow-dark) inset;
-    /* Inset shadow */
+.search-button:hover {
+    background-color: var(--accent-gold-darker);
+    transform: translateY(-2px);
 }
 
-
-.hero-graphic-container {
-    flex: 1;
-    min-width: 300px;
-    max-width: 45%;
-    /* Adjust width */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-    /* You might need to position the image slightly outside its container */
+/* Document Cards */
+.documents-section {
+    padding: 60px 0;
 }
 
-.hero-graphic-image {
-    max-width: 100%;
-    height: auto;
-    /* If using absolute positioning to match Figma exactly */
-    /* position: absolute; */
-    /* right: -80px; */
-    /* Adjust positioning */
-    /* bottom: -40px; */
-    /* width: 400px; */
-    /* Control size */
-    /* z-index: 2; */
-    /* Ensure it's above other elements if needed */
+.documents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
 }
 
+.document-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.document-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.document-preview {
+    height: 200px;
+    overflow: hidden;
+}
+
+.document-preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.document-info {
+    padding: 20px;
+}
+
+.document-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+.document-description {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.btn-download {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--accent-gold);
+    color: var(--primary-dark-bg);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.btn-download:hover {
+    background-color: var(--accent-gold-darker);
+}
+
+/* RTL Support for Search Page */
+[dir="rtl"] .search-bar-container {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .search-input {
+    text-align: right;
+}
+
+[dir="rtl"] .document-info {
+    text-align: right;
+}
 
 /* === RESPONSIVENESS - HEADER & HERO === */
 @media (max-width: 1024px) {
@@ -453,7 +810,7 @@ main {
         font-size: 3rem;
     }
 
-    .hero-graphic-container {
+    .hero-image {
         max-width: 40%;
         /* Adjust */
     }
@@ -544,21 +901,17 @@ main {
         gap: 40px;
     }
 
-    .hero-content-left {
+    .hero-content {
         order: 2;
         text-align: center;
         max-width: 100%;
-    }
-
-    .hero-subheading {
-        font-size: 0.85rem;
     }
 
     .hero-heading {
         font-size: 2.5rem;
     }
 
-    .hero-paragraph {
+    .hero-description {
         font-size: 1rem;
         max-width: 90%;
         margin-left: auto;
@@ -570,17 +923,21 @@ main {
         flex-wrap: wrap;
     }
 
-    .btn-hero {
-        padding: 10px 25px;
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        padding: 0.8rem 1.8rem;
+        font-size: 0.95rem;
+        min-width: unset;
     }
 
-    .hero-graphic-container {
+    .hero-image {
         order: 1;
         max-width: 80%;
         min-width: auto;
     }
 
-    .hero-graphic-image {
+    .hero-illustration {
         max-width: 200px;
         position: static;
         margin: 0 auto;
@@ -607,9 +964,10 @@ main {
         font-size: 2rem;
     }
 
-    .btn-hero {
-        padding: 10px 20px;
-        font-size: 0.85rem;
+    .btn-primary,
+    .btn-secondary {
+        padding: 0.8rem 1.8rem;
+        font-size: 0.95rem;
     }
 
     .hero-buttons {
@@ -617,870 +975,13 @@ main {
         gap: 10px;
     }
 
-    .hero-buttons .btn-hero {
+    .hero-buttons .btn-primary,
+    .hero-buttons .btn-secondary {
         width: 80%;
         margin-left: auto;
         margin-right: auto;
     }
 }
-
-/* Add these styles to your existing frontend/css/style.css */
-
-/* === SEARCH SECTION (IMAGE 2) === */
-.search-section {
-    position: relative;
-    /* Adjust padding */
-    padding: 100px 0;
-    /* More padding to push content down and maybe center vertically */
-    overflow: hidden;
-    text-align: center;
-    /* Center align text */
-    display: flex;
-    /* Use flexbox to potentially center content vertically */
-    align-items: center;
-    /* Vertical centering */
-    justify-content: center;
-    /* Horizontal centering */
-    min-height: calc(100vh - 60px);
-    /* Make section take at least viewport height minus header */
-
-    /* Background Gradient/Effect (similar to hero, maybe different focus) */
-    /* Example */
-    /* background: radial-gradient(circle at top center, rgba(var(--accent-gold-rgb), 0.3) 0%, transparent 50%), radial-gradient(circle at bottom center, rgba(var(--accent-gold-rgb), 0.2) 0%, transparent 50%), var(--primary-dark-bg); */
-}
-
-.search-container {
-    /* Inherits .container styles */
-    /* No specific flex layout needed within the container itself */
-}
-
-.search-content {
-    z-index: 1;
-    /* Ensure content is above background effects */
-    max-width: 800px;
-    /* Control the width of the content block */
-    width: 100%;
-    margin: 0 auto;
-    /* Ensure centering */
-    display: flex;
-    /* Use flexbox to stack elements vertically */
-    flex-direction: column;
-    align-items: center;
-    /* Center items within the column */
-}
-
-/* Reuse existing section-heading and section-description styles */
-.search-content .section-heading {
-    font-size: 2.8rem;
-    /* Adjust size */
-    margin-bottom: 15px;
-    color: var(--text-light);
-}
-
-.search-content .section-description {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    margin-bottom: 30px;
-    /* Space below description */
-}
-
-.search-bar-container {
-    display: flex;
-    /* Arrange input and button side-by-side */
-    width: 100%;
-    /* Take full width of parent (.search-content) */
-    max-width: 600px;
-    /* Control max width of the search bar itself */
-    background-color: var(--input-bg);
-    /* Dark background for the bar area */
-    border: 1px solid var(--border-color-subtle);
-    /* Subtle border */
-    border-radius: 6px;
-    /* Match button/card radius */
-    overflow: hidden;
-    /* Contain children if they have border/margin issues */
-    align-items: center;
-    /* Vertically align input and button */
-}
-
-.search-input {
-    flex-grow: 1;
-    /* Allow input to take available space */
-    padding: 12px 20px;
-    /* Adjust padding */
-    border: none;
-    /* Remove default input border */
-    background-color: transparent;
-    /* Transparent background to show container bg */
-    color: var(--text-light);
-    /* Text color */
-    font-size: 1rem;
-    outline: none;
-    /* Remove default focus outline */
-}
-
-.search-input::placeholder {
-    color: var(--text-secondary);
-    opacity: 0.7;
-}
-
-/* Reuse .btn-hero styles for the button */
-.search-button {
-    /* .btn-hero styles cover padding, border, background, color, radius, hover/active */
-    flex-shrink: 0;
-    /* Prevent button from shrinking */
-    padding: 12px 25px;
-    /* Adjust padding to match Figma button size */
-    border: none;
-    /* Remove border as parent container has border */
-    border-radius: 0 6px 6px 0;
-    /* Only round right corners */
-    height: 100%;
-    /* Make button fill height of container */
-}
-
-/* Adjustments for background gradient effects */
-.search-section::before {
-    /* Example using a pseudo-element for the glowing effect */
-    content: '';
-    position: absolute;
-    top: 0;
-    /* Adjust vertical position */
-    left: 0;
-    /* Position to the left */
-    width: 50%;
-    /* Adjust size of the glow */
-    height: 100%;
-    background: radial-gradient(circle at 10% 10%, rgba(var(--accent-gold-rgb), 0.3) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: 0;
-    /* Behind the content */
-}
-
-/* You might need another pseudo-element for the right side glow */
-.search-section::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    background: radial-gradient(circle at 90% 90%, rgba(var(--accent-gold-rgb), 0.2) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: 0;
-}
-
-
-/* === RESPONSIVENESS - SEARCH === */
-@media (max-width: 992px) {
-    .search-content .section-heading {
-        font-size: 2.2rem;
-    }
-
-    .search-content .section-description {
-        font-size: 1rem;
-    }
-
-    .search-section {
-        padding: 80px 0;
-        /* Reduce padding */
-        min-height: calc(100vh - 58px);
-        /* Adjust height calc for mobile header */
-    }
-}
-
-@media (max-width: 768px) {
-    .search-content .section-heading {
-        font-size: 1.8rem;
-    }
-
-    .search-bar-container {
-        max-width: 90%;
-        /* Allow search bar to be wider on smaller screens */
-    }
-
-    .search-section::before,
-    .search-section::after {
-        /* Adjust background effects */
-        width: 80%;
-        left: 50%;
-        transform: translateX(-50%);
-        top: 50%;
-        /* Center vertical */
-        background: radial-gradient(circle at center, rgba(var(--accent-gold-rgb), 0.3) 0%, transparent 60%);
-    }
-
-    .search-section::after {
-        display: none;
-        /* Hide one glow */
-    }
-}
-
-@media (max-width: 576px) {
-    .search-content .section-heading {
-        font-size: 1.5rem;
-    }
-
-    .search-bar-container {
-        flex-direction: column;
-        /* Stack input and button */
-        border: none;
-        /* Remove border from container */
-        background-color: transparent;
-        /* Remove background from container */
-        gap: 10px;
-        /* Space between stacked input/button */
-    }
-
-    .search-input {
-        border: 1px solid var(--border-color-subtle);
-        /* Add border back to input */
-        background-color: var(--input-bg);
-        /* Add background back to input */
-        border-radius: 6px;
-        /* Round input corners */
-        width: 100%;
-        /* Input takes full width */
-        max-width: 300px;
-        /* Optional: limit stacked input width */
-        margin: 0 auto;
-        /* Center stacked input */
-    }
-
-    .search-button {
-        border-radius: 6px;
-        /* Round all button corners */
-        width: 80%;
-        /* Make button wide when stacked */
-        max-width: 200px;
-        /* Optional: limit stacked button width */
-        margin: 0 auto;
-        /* Center stacked button */
-        height: auto;
-        /* Auto height */
-    }
-}
-
-/* TODO: Add styles for Category Selection (Image 3) and Footer (Image 4) */
-/* Add these styles to your existing frontend/css/style.css */
-
-/* === CATEGORY SELECTION SECTION (IMAGE 3) === */
-.category-selection-section {
-    position: relative;
-    padding: 80px 0;
-    /* Adjust padding */
-    overflow: hidden;
-    text-align: center;
-    /* Center align text */
-    /* Background Gradient/Effect (similar to hero/search, maybe different focus) */
-    background: radial-gradient(circle at top left, rgba(var(--accent-gold-rgb), 0.2) 0%, transparent 40%), var(--primary-dark-bg);
-}
-
-.category-selection-container {
-    /* Inherits .container styles */
-    /* No specific flex layout needed for the container itself, just its contents */
-}
-
-.category-selection-header {
-    margin-bottom: 40px;
-}
-
-/* Reusing .subheading, .section-heading, .section-description styles from other pages */
-.subheading {
-    font-size: 0.9rem;
-    /* Consistent subheading size */
-    font-weight: 500;
-    color: var(--accent-gold);
-    margin-bottom: 8px;
-    display: block;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    opacity: 0.8;
-}
-
-.section-heading {
-    font-size: 2.8rem;
-    /* Consistent main heading size */
-    font-weight: 700;
-    color: var(--text-light);
-    line-height: 1.3;
-    margin-bottom: 15px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.section-description {
-    font-size: 1.05rem;
-    /* Consistent description size */
-    color: var(--text-secondary);
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-/* --- Issue Grid (Category Buttons - IMAGE 3 Appearance) --- */
-.issue-grid {
-    display: grid;
-    /* Responsive grid: 3 columns on large screens, then adjust */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    /* Space between cards */
-    margin-top: 30px;
-}
-
-.issue-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color-subtle);
-    /* Subtle border color */
-    border-radius: 8px;
-    /* Match Figma */
-    padding: 25px;
-    /* Adjust padding */
-    cursor: pointer;
-    font-family: var(--font-primary);
-    color: var(--text-light);
-    /* Card text color */
-    width: 100%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 120px;
-    /* Adjust height */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
-    /* Add background-color transition */
-}
-
-.issue-card h2 {
-    color: var(--text-light);
-    /* Card title color */
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin: 0;
-}
-
-.issue-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    border-color: var(--accent-gold);
-    /* Gold border on hover */
-    background-color: #1F2433;
-    /* Slightly lighter dark background on hover */
-}
-
-.issue-card:active {
-    transform: translateY(-2px) scale(0.98);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-.issue-card:focus {
-    outline: 2px solid var(--accent-gold);
-    outline-offset: 3px;
-}
-
-/* --- CHAT INTERFACE (Refining styles from previous steps) --- */
-.chat-container {
-    margin-top: 50px;
-    /* Space above chat when it appears */
-    padding: 30px;
-    background-color: var(--card-bg);
-    border-radius: 8px;
-    border: 1px solid var(--border-color-subtle);
-    /* box-shadow: 0 5px 15px rgba(0,0,0,0.1); */
-}
-
-.chat-title {
-    color: var(--accent-gold);
-    text-align: center;
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-
-.chat-box {
-    height: 400px;
-    /* Adjust height */
-    overflow-y: auto;
-    border: 1px solid var(--border-color-subtle);
-    /* Use subtle border color */
-    background-color: var(--primary-dark-bg);
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-/* Chat Message Styles */
-.chat-message {
-    padding: 10px 15px;
-    border-radius: 6px;
-    max-width: 85%;
-    word-wrap: break-word;
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-.user-message {
-    background-color: var(--accent-gold);
-    color: var(--primary-dark-bg);
-    margin-left: auto;
-    /* Refined bubble corners */
-    border-bottom-right-radius: 3px;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    border-bottom-left-radius: 6px;
-}
-
-.ai-message {
-    background-color: var(--input-bg);
-    /* Darker background for AI */
-    color: var(--text-light);
-    margin-right: auto;
-    /* Refined bubble corners */
-    border-bottom-left-radius: 3px;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-}
-
-/* Typing Indicator Style (ensure these are present and match chat bubble style) */
-.typing-indicator {
-    background-color: var(--input-bg);
-    /* Match AI message bubble */
-    width: 60px;
-    /* Fixed width for dots */
-    text-align: center;
-}
-
-.typing-indicator .dot {
-    /* Style for the dots themselves */
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background-color: var(--accent-gold);
-    border-radius: 50%;
-    margin: 0 2px;
-    animation: typing-bounce 1s infinite ease-in-out;
-}
-
-@keyframes typing-bounce {
-
-    0%,
-    80%,
-    100% {
-        transform: scale(0);
-        opacity: 0.5;
-    }
-
-    /* Add opacity */
-    40% {
-        transform: scale(1.0);
-        opacity: 1;
-    }
-}
-
-.chat-input-area {
-    display: flex;
-    gap: 10px;
-}
-
-#user-input {
-    flex-grow: 1;
-    padding: 12px 20px;
-    border: 1px solid var(--border-color-subtle);
-    border-radius: 6px;
-    background-color: var(--input-bg);
-    color: var(--text-light);
-    font-size: 1em;
-}
-
-#user-input::placeholder {
-    color: var(--text-secondary);
-    opacity: 0.7;
-}
-
-#user-input:focus {
-    outline: none;
-    border-color: var(--accent-gold);
-    box-shadow: 0 0 0 2px rgba(var(--accent-gold-rgb), 0.2);
-}
-
-
-#send-button {
-    padding: 12px 25px;
-    /* Match hero/search button size */
-    background-color: var(--accent-gold);
-    color: var(--primary-dark-bg);
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-#send-button:hover {
-    background-color: var(--accent-gold-darker);
-    transform: translateY(-2px);
-}
-
-#send-button:active {
-    transform: scale(0.98) translateY(0);
-}
-
-#send-button:disabled {
-    background-color: #555;
-    color: #999;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-}
-
-.chat-disclaimer {
-    margin-top: 15px;
-    text-align: center;
-    font-size: 0.8em;
-    color: var(--text-secondary);
-}
-
-/* Style for the Back button (matching the look of Image 3's outline buttons) */
-.btn-secondary {
-    background-color: transparent;
-    color: var(--text-secondary);
-    border: 1px solid var(--text-secondary);
-    /* Border matching text color */
-    padding: 8px 18px;
-    /* Adjust padding */
-    border-radius: 4px;
-    /* Match header button radius */
-    font-weight: 500;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    text-align: center;
-    display: inline-block;
-    font-size: 0.9rem;
-}
-
-.btn-secondary:hover {
-    color: var(--text-light);
-    /* Fade to lighter text */
-    border-color: var(--text-light);
-    /* Change border color */
-}
-
-/* === RESPONSIVENESS - CATEGORY SELECTION & CHAT === */
-@media (max-width: 992px) {
-    .category-selection-header .section-heading {
-        font-size: 2.2rem;
-        /* Adjust size */
-    }
-
-    .category-selection-header .section-description {
-        font-size: 1rem;
-    }
-
-    .issue-grid {
-        gap: 15px;
-    }
-
-    .issue-card {
-        padding: 20px;
-        min-height: 100px;
-    }
-
-    .issue-card h2 {
-        font-size: 1rem;
-    }
-
-    .chat-title {
-        font-size: 1.5rem;
-    }
-
-    .chat-box {
-        height: 350px;
-        padding: 10px;
-    }
-
-    .chat-message {
-        padding: 8px 12px;
-        font-size: 0.9rem;
-    }
-
-    #user-input,
-    #send-button,
-    .btn-secondary {
-        padding: 10px 15px;
-        font-size: 0.9rem;
-    }
-
-    #send-button {
-        font-weight: 600;
-        /* Keep font weight consistent */
-    }
-}
-
-@media (max-width: 768px) {
-    .category-selection-header .section-heading {
-        font-size: 1.8rem;
-    }
-
-    .issue-grid {
-        grid-template-columns: 1fr;
-        /* Stack cards on smaller screens */
-        gap: 10px;
-    }
-
-    .issue-card {
-        min-height: 80px;
-    }
-
-    .chat-title {
-        font-size: 1.4rem;
-    }
-
-    .chat-box {
-        height: 300px;
-    }
-
-    .chat-input-area {
-        flex-direction: column;
-        /* Stack input and button */
-        gap: 5px;
-    }
-
-    #user-input,
-    #send-button {
-        width: 100%;
-        /* Make input/button fill width when stacked */
-        padding: 12px 15px;
-    }
-
-    #send-button {
-        /* Adjust padding/margins if needed after stacking */
-    }
-
-    .chat-message {
-        max-width: 95%;
-        /* Allow messages to be wider */
-    }
-}
-
-@media (max-width: 576px) {
-    .category-selection-header .section-heading {
-        font-size: 1.5rem;
-    }
-}
-
-/* Add these styles to your existing frontend/css/style.css */
-
-/* === FOOTER (IMAGE 4) === */
-.main-footer {
-    background-color: #0D101B;
-    /* Slightly different dark than primary-dark-bg */
-    color: var(--text-secondary);
-    /* Lighter text */
-    padding: 60px 0;
-    /* Adjust padding */
-    font-size: 0.9rem;
-    /* Smaller text */
-    position: relative;
-    overflow: hidden;
-    /* To contain background pattern/effects */
-    /* Add background pattern if using CSS - Tricky to match exact Figma pattern */
-    /* Example with linear gradients (simplified pattern) */
-    /* background: linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(180deg, rgba(255,255,255,0.05) 1px, transparent 1px); */
-    /* background-size: 20px 20px; Adjust size */
-    /* background-color: #0D101B; */
-    /* Ensure background color is set if pattern is used */
-}
-
-.footer-container {
-    display: flex;
-    /* Use flexbox for column layout */
-    flex-wrap: wrap;
-    /* Allow columns to wrap on smaller screens */
-    justify-content: space-between;
-    /* Space between columns */
-    gap: 30px;
-    /* Space between columns */
-    /* Adjust gap as needed */
-}
-
-.footer-col {
-    /* Flex-basis or width for columns */
-    /* Adjust widths based on desired layout */
-    flex-basis: 150px;
-    /* Default minimum width */
-    flex-grow: 1;
-    /* Allow columns to grow */
-    /* Example specific widths for desktop */
-    /* .footer-col-logo { flex-basis: 300px; } */
-    /* .footer-col-links, .footer-col-company, .footer-col-contact { flex-basis: 180px; } */
-}
-
-.footer-col-logo {
-    /* Specific styles for the logo column */
-    flex-basis: 300px;
-    /* Give more space to the logo column */
-}
-
-.footer-logo-image {
-    height: 35px;
-    /* Adjust logo icon size in footer */
-    margin-right: 10px;
-    /* Space between icon and text */
-    display: inline-block;
-    /* Align icon and text */
-    vertical-align: middle;
-    /* Vertically align with text */
-}
-
-.footer-col-logo .logo-text {
-    /* Style for MEZAN text in footer logo */
-    font-size: 1.5rem;
-    /* Adjust size */
-    font-weight: 700;
-    color: var(--text-light);
-    /* Lighter color */
-    vertical-align: middle;
-}
-
-.footer-copyright {
-    margin-top: 15px;
-    /* Space below logo/text */
-    font-size: 0.85rem;
-    /* Smaller copyright text */
-    color: var(--text-secondary);
-}
-
-.footer-heading {
-    font-size: 1rem;
-    /* Heading size */
-    font-weight: 600;
-    /* Semi-bold */
-    color: var(--text-light);
-    /* Lighter color */
-    margin-bottom: 15px;
-    /* Space below heading */
-    text-transform: uppercase;
-    /* Uppercase headings like design */
-    letter-spacing: 0.5px;
-}
-
-.footer-col ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-col li {
-    margin-bottom: 10px;
-    /* Space between list items */
-}
-
-.footer-col a,
-.footer-col p {
-    color: inherit;
-    /* Inherit color from parent (.footer-col) */
-    text-decoration: none;
-    font-size: 0.9rem;
-    /* Text size */
-    transition: color 0.3s ease;
-}
-
-.footer-col a:hover {
-    color: var(--accent-gold);
-    /* Gold on hover */
-}
-
-.footer-disclaimer {
-    width: 100%;
-    /* Takes full width below columns */
-    text-align: center;
-    margin-top: 40px;
-    /* Space above disclaimer */
-    padding-top: 30px;
-    /* Padding above border */
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    /* Subtle top border */
-    color: #888;
-    /* Muted color */
-    font-size: 0.8rem;
-    line-height: 1.6;
-}
-
-
-/* === RESPONSIVENESS - FOOTER === */
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        /* Stack columns */
-        align-items: center;
-        /* Center stacked columns */
-        text-align: center;
-        /* Center text in columns */
-        gap: 40px;
-        /* Increase gap when stacked */
-    }
-
-    .footer-col {
-        flex-basis: auto;
-        /* Auto width when stacked */
-        width: 100%;
-        /* Take full width */
-    }
-
-    .footer-logo-image {
-        display: block;
-        /* Stack logo icon above text */
-        margin: 0 auto 8px auto;
-        /* Center icon and add space below */
-        height: 30px;
-        /* Adjust size */
-    }
-
-    .footer-col-logo .logo-text {
-        font-size: 1.3rem;
-        /* Adjust size */
-    }
-
-    .footer-col-logo,
-    .footer-col-links,
-    .footer-col-company,
-    .footer-col-contact {
-        /* Specific column widths are overridden by width: 100%; */
-        flex-basis: auto;
-        flex-grow: 0;
-    }
-
-    .footer-heading {
-        margin-bottom: 10px;
-        /* Reduce margin below heading */
-    }
-
-    .footer-col ul {
-        margin-bottom: 10px;
-        /* Space below lists when stacked */
-    }
-
-    .footer-disclaimer {
-        margin-top: 30px;
-        padding-top: 20px;
-    }
-}
-
-@media (max-width: 576px) {
-    .main-footer {
-        padding: 40px 0;
-        /* Reduce padding */
-    }
-}
-
-/* Add to your existing frontend/css/style.css */
 
 /* === GENERAL PAGE CONTENT === */
 .page-content {
@@ -1554,100 +1055,22 @@ main {
     }
 }
 
-/* Add these styles to your existing frontend/css/style.css */
-
-/* === FEATURES SECTION (Example New Section on Homepage) === */
-.features-section {
-    position: relative;
-    padding: 80px 0;
-    /* Consistent vertical padding */
-    overflow: hidden;
-    background-color: var(--primary-dark-bg);
-    /* Ensure background color */
-    /* Add background gradient/pattern here if desired */
-}
-
-.features-container {
-    /* Inherits .container styles */
-    /* No specific flex/grid on container itself */
-}
-
-/* Reusing section-heading style */
-.features-section .section-heading {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.feature-grid {
-    display: grid;
-    /* Grid with columns that auto-fit */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    /* Adjust minmax width */
-    gap: 30px;
-    /* Space between grid items */
-    margin-top: 20px;
-}
-
-.feature-item {
-    background-color: var(--card-bg);
-    /* Darker background */
-    border: 1px solid var(--border-color-subtle);
-    /* Subtle border */
-    border-radius: 8px;
-    /* Match Figma */
-    padding: 25px;
-    /* Adjust padding */
-    text-align: left;
-    /* Text alignment */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.feature-item:hover {
-    transform: translateY(-5px);
-    /* Lift effect */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-}
-
-.feature-title {
-    font-size: 1.2rem;
-    /* Adjust title size */
-    font-weight: 600;
-    /* Semi-bold */
-    color: var(--accent-gold);
-    /* Gold title */
-    margin-bottom: 10px;
-}
-
-.feature-item p {
-    font-size: 0.95rem;
-    /* Text size */
-    color: var(--text-secondary);
-    /* Secondary text color */
-    line-height: 1.6;
-    margin-bottom: 0;
-    /* Remove bottom margin */
-}
-
-/* Reuse .btn-hero styles for the "Learn More" button */
-/* It's already defined in your CSS */
-
-
-/* === RESPONSIVENESS - FEATURES SECTION === */
+/* === FEATURES SECTION === */
 @media (max-width: 768px) {
-    .feature-grid {
+    .features-grid {
         gap: 20px;
         /* Reduce gap on smaller screens */
     }
 
-    .feature-item {
-        padding: 20px;
+    .feature-card {
+        padding: 30px 20px;
     }
 
     .feature-title {
         font-size: 1.1rem;
     }
 
-    .feature-item p {
+    .feature-description {
         font-size: 0.9rem;
     }
 }
@@ -1788,116 +1211,823 @@ main {
     }
 }
 
-/* Documents Section Styles */
-.documents-section {
-    padding: 60px 0;
-    background-color: rgba(255, 255, 255, 0.02);
+/* Font Classes */
+.kufam-regular {
+    font-family: "Kufam", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
 }
 
-.documents-section .section-heading {
-    text-align: center;
-    margin-bottom: 40px;
+.kufam-medium {
+    font-family: "Kufam", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+}
+
+.kufam-semibold {
+    font-family: "Kufam", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+}
+
+.kufam-bold {
+    font-family: "Kufam", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+}
+
+.lexend-deca-regular {
+    font-family: "Lexend Deca", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+}
+
+.lexend-deca-medium {
+    font-family: "Lexend Deca", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+}
+
+.lexend-deca-semibold {
+    font-family: "Lexend Deca", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+}
+
+.lexend-deca-bold {
+    font-family: "Lexend Deca", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+}
+
+.ruwudu-regular {
+    font-family: "Ruwudu", serif;
+    font-weight: 400;
+}
+
+.ruwudu-medium {
+    font-family: "Ruwudu", serif;
+    font-weight: 500;
+}
+
+.ruwudu-semibold {
+    font-family: "Ruwudu", serif;
+    font-weight: 600;
+}
+
+.ruwudu-bold {
+    font-family: "Ruwudu", serif;
+    font-weight: 700;
+}
+
+/* Language Switcher */
+.lang-switch {
+    margin-right: 1rem;
+}
+
+.btn-lang {
+    background: transparent;
+    color: var(--accent-gold);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid var(--accent-gold);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.5px;
+}
+
+.btn-lang:hover {
+    background: rgba(255, 215, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+    .lang-switch {
+        margin-right: 0;
+        margin-top: 1rem;
+    }
+
+    .btn-lang {
+        width: 100%;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* RTL Language Button */
+[dir="rtl"] .btn-lang {
+    margin-right: 0;
+    margin-left: 1rem;
+}
+
+/* RTL Support */
+[dir="rtl"] {
+    text-align: right;
+}
+
+[dir="rtl"] .nav-links {
+    padding-right: 0;
+}
+
+[dir="rtl"] .auth-buttons {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+/* Image Styles */
+.logo-icon {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+.hero-image {
+    max-width: 100%;
+    height: auto;
+    margin: 2rem 0;
+}
+
+.feature-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1rem;
+}
+
+.feature-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.footer-logo-image {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.footer-logo-text {
+    font-size: 1.2rem;
+    font-weight: 400;
     color: var(--text-light);
+    font-family: 'Lexend Deca', sans-serif;
 }
 
-.documents-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
-    padding: 20px 0;
-}
-
-.document-card {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--border-color-subtle);
-}
-
-.document-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.document-preview {
-    position: relative;
+/* Document Thumbnails */
+.document-thumbnail {
     width: 100%;
     height: 200px;
-    overflow: hidden;
-    background: rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
 }
 
-.document-preview-image {
+/* Chat Interface Styles */
+.chat-container {
+    background: rgba(26, 29, 46, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(220, 187, 90, 0.1);
+    border-radius: 15px;
+    padding: 40px;
+    margin-top: 50px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.chat-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.chat-box {
+    height: 450px;
+    border: 1px solid rgba(220, 187, 90, 0.1);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    overflow-y: auto;
+    background: rgba(42, 45, 62, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.chat-message {
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    max-width: 80%;
+    line-height: 1.6;
+    font-size: 1.05rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.user-message {
+    background: var(--gradient-accent);
+    color: var(--primary-dark-bg);
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+}
+
+.ai-message {
+    background: rgba(26, 29, 46, 0.8);
+    color: var(--text-light);
+    margin-right: auto;
+    border-bottom-left-radius: 4px;
+    border: 1px solid rgba(220, 187, 90, 0.1);
+}
+
+.chat-input-area {
+    display: flex;
+    gap: 15px;
+}
+
+.chat-input-area input {
+    flex: 1;
+    padding: 15px 20px;
+    border: 1px solid rgba(220, 187, 90, 0.2);
+    border-radius: 10px;
+    background: rgba(42, 45, 62, 0.5);
+    color: var(--text-light);
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+}
+
+.chat-input-area input:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 2px rgba(220, 187, 90, 0.1);
+}
+
+.chat-input-area button {
+    padding: 15px 30px;
+    background: var(--gradient-accent);
+    color: var(--primary-dark-bg);
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.chat-input-area button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(220, 187, 90, 0.2);
+}
+
+.chat-disclaimer {
+    margin-top: 15px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Scrollbar Styles for Chat Box */
+.chat-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-box::-webkit-scrollbar-track {
+    background: var(--input-bg);
+    border-radius: 4px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+    background: var(--accent-gold);
+    border-radius: 4px;
+}
+
+.chat-box::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-gold-darker);
+}
+
+/* Legal Resources Page Styles */
+.resources-hero {
+    padding: 120px 0 60px;
+    background: var(--gradient-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.resources-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    background: radial-gradient(circle at 90% 10%, rgba(var(--accent-gold-rgb), 0.15) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.resources-hero .section-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.resources-hero .section-description {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.resources-grid {
+    padding: 80px 0;
+    background: var(--gradient-secondary);
+}
+
+.resources-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.resource-card {
+    background: rgba(26, 29, 46, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(220, 187, 90, 0.1);
+    border-radius: 15px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.resource-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    border-color: rgba(220, 187, 90, 0.3);
+}
+
+.resource-icon {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-accent);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.resource-icon i {
+    font-size: 2.8rem;
+    color: var(--primary-dark-bg);
+}
+
+.resource-card:hover .resource-icon {
+    transform: scale(1.1);
+}
+
+.resource-card h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.resource-card p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 25px;
+    font-size: 1.05rem;
+}
+
+.featured-resources {
+    padding: 80px 0;
+    background: var(--gradient-primary);
+}
+
+.featured-resources .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 40px;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+}
+
+.featured-card {
+    background: rgba(26, 29, 46, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(220, 187, 90, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.featured-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    border-color: rgba(220, 187, 90, 0.3);
+}
+
+.featured-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.featured-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
 
-.document-card:hover .document-preview-image {
-    transform: scale(1.05);
+.featured-card:hover .featured-image img {
+    transform: scale(1.1);
 }
 
-.document-info {
-    padding: 20px;
+.featured-content {
+    padding: 30px;
 }
 
-.document-title {
-    font-size: 1.2rem;
+.featured-content h3 {
+    font-size: 1.4rem;
     font-weight: 600;
     color: var(--text-light);
-    margin-bottom: 10px;
-}
-
-.document-description {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
     margin-bottom: 15px;
-    line-height: 1.5;
 }
 
-.btn-download {
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: var(--accent-gold);
-    color: var(--primary-dark-bg);
-    border-radius: 4px;
-    font-weight: 500;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
+.featured-content p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 25px;
+    font-size: 1.05rem;
 }
 
-.btn-download:hover {
-    background-color: var(--accent-gold-darker);
-}
-
-/* Responsive styles for documents section */
 @media (max-width: 768px) {
-    .documents-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 20px;
+    .resources-hero .section-title {
+        font-size: 2.5rem;
     }
 
-    .document-preview {
-        height: 180px;
-    }
-
-    .document-info {
-        padding: 15px;
-    }
-
-    .document-title {
+    .resources-hero .section-description {
         font-size: 1.1rem;
+        padding: 0 20px;
     }
-}
 
-@media (max-width: 576px) {
-    .documents-grid {
+    .featured-grid {
         grid-template-columns: 1fr;
     }
 
-    .document-preview {
-        height: 160px;
+    .featured-image {
+        height: 200px;
     }
+}
+
+/* Select Issue Page Styles */
+.select-issue-section {
+    padding: 80px 0;
+    background: var(--gradient-secondary);
+}
+
+.issue-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.issue-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.issue-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.issue-icon {
+    font-size: 2.5rem;
+    color: var(--accent-gold);
+    margin-bottom: 20px;
+}
+
+.issue-card h3 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.issue-card p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* Chat Section Styles */
+.chat-section {
+    padding: 80px 0;
+    background: var(--gradient-primary);
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+}
+
+.chat-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.chat-title {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.chat-box {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 20px;
+    height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.chat-message {
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+.ai-message {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    margin-right: auto;
+}
+
+.user-message {
+    background: var(--accent-gold);
+    color: #fff;
+    margin-left: auto;
+}
+
+.chat-input-area {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.chat-input-area input {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1rem;
+}
+
+.chat-input-area input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chat-input-area button {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    background: var(--accent-gold);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.chat-input-area button:hover {
+    background: var(--accent-gold-dark);
+}
+
+.chat-disclaimer {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+
+    .select-issue-section,
+    .chat-section {
+        padding: 60px 0;
+    }
+
+    .issue-categories {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .chat-container {
+        padding: 20px;
+    }
+
+    .chat-box {
+        height: 300px;
+    }
+
+    .chat-message {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .select-issue-section,
+    .chat-section {
+        padding: 40px 0;
+    }
+
+    .chat-input-area {
+        flex-direction: column;
+    }
+
+    .chat-input-area button {
+        width: 100%;
+    }
+}
+
+/* Update existing section styles to account for fixed header */
+.hero-section,
+.features-section,
+.about-hero,
+.about-mission,
+.about-values,
+.about-team,
+.about-cta,
+.search-section,
+.documents-section,
+.contact-section,
+.how-it-works-section {
+    padding: 80px 0;
+    position: relative;
+}
+
+/* Ensure sections don't overlap */
+section+section {
+    margin-top: 0;
+}
+
+/* Update grid layouts to ensure proper alignment */
+.features-grid,
+.values-grid,
+.team-grid,
+.documents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .mission-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .mission-image {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        margin-top: 60px;
+    }
+
+    .hero-section,
+    .features-section,
+    .about-hero,
+    .about-mission,
+    .about-values,
+    .about-team,
+    .about-cta,
+    .search-section,
+    .documents-section,
+    .contact-section,
+    .how-it-works-section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .hero-section,
+    .features-section,
+    .about-hero,
+    .about-mission,
+    .about-values,
+    .about-team,
+    .about-cta,
+    .search-section,
+    .documents-section,
+    .contact-section,
+    .how-it-works-section {
+        padding: 40px 0;
+    }
+}
+
+/* Typing Indicator */
+.typing-indicator {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 15px;
+}
+
+.typing-indicator .dot {
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    animation: typingAnimation 1.4s infinite ease-in-out;
+}
+
+.typing-indicator .dot:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.typing-indicator .dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-indicator .dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typingAnimation {
+
+    0%,
+    60%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+
+    30% {
+        transform: translateY(-4px);
+        opacity: 1;
+    }
+}
+
+.filter-select {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background: var(--input-bg);
+    color: var(--text-light);
+    /* This sets the color of the selected item */
+}
+
+.filter-select option {
+    background: #fff;
+    /* Or a color that matches your theme's dropdown */
+    color: #000;
+    /* Sets the text color of the dropdown options to black */
+}
+
+.search-results {
+    margin-top: 40px;
 }

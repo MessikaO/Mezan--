@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ميزان - اختر مشكلتك القانونية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kufam:ital,wght@0,400..900;1,400..900&family=Lexend+Deca:wght@100..900&family=Ruwudu:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/rtl.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="main-header">
+            <div class="container header-container">
+                <div class="logo-container">
+                    <a href="index-ar.html" class="logo-link">
+                        <img src="assets/images/logo.png" alt="شعار ميزان" class="logo-icon">
+                        <span class="logo-text ruwudu-bold">ميزان</span>
+                    </a>
+                </div>
+                <nav class="navbar">
+                    <button id="menu-toggle" class="menu-toggle" aria-label="تبديل قائمة التنقل" aria-expanded="false">
+                        <span class="menu-icon-bar"></span>
+                        <span class="menu-icon-bar"></span>
+                        <span class="menu-icon-bar"></span>
+                    </button>
+                    <ul class="nav-links" id="nav-links">
+                        <li><a href="index-ar.html" class="nav-link lexend-deca-regular">الرئيسية</a></li>
+                        <li><a href="how-it-works-ar.html" class="nav-link lexend-deca-regular">كيف يعمل</a></li>
+                        <li><a href="select-issue-ar.html" class="nav-link lexend-deca-regular active-page">المحادثة
+                                الذكية</a></li>
+                        <li><a href="search-page-ar.html" class="nav-link lexend-deca-regular">البحث</a></li>
+                        <li><a href="about-ar.html" class="nav-link lexend-deca-regular">من نحن</a></li>
+                        <li><a href="contact-ar.html" class="nav-link lexend-deca-regular">اتصل بنا</a></li>
+                    </ul>
+                </nav>
+                <div class="lang-switch">
+                    <a href="select-issue.html" class="btn btn-lang lexend-deca-regular">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="select-issue-section">
+                <div class="container">
+                    <h1 class="section-title kufam-bold">اختر مشكلتك القانونية</h1>
+                    <p class="section-description lexend-deca-regular">اختر الفئة التي تناسب مشكلتك القانونية</p>
+
+                    <div class="issue-categories">
+                        <div class="issue-card">
+                            <div class="issue-icon">
+                                <i class="fas fa-car-crash"></i>
+                            </div>
+                            <h3 class="kufam-semibold">قانون الحوادث</h3>
+                            <p class="lexend-deca-regular">احصل على إرشادات حول مطالبات الحوادث والتأمين والتعويضات.</p>
+                            <button class="btn btn-secondary lexend-deca-regular"
+                                onclick="selectIssue('accident')">اختيار</button>
+                        </div>
+
+                        <div class="issue-card">
+                            <div class="issue-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h3 class="kufam-semibold">قانون العقوبات</h3>
+                            <p class="lexend-deca-regular">معلومات وإرشادات حول الجرائم والعقوبات والمسائل الجزائية.</p>
+                            <button class="btn btn-secondary lexend-deca-regular"
+                                onclick="selectIssue('penal')">اختيار</button>
+                        </div>
+
+                        <div class="issue-card">
+                            <div class="issue-icon">
+                                <i class="fas fa-gavel"></i>
+                            </div>
+                            <h3 class="kufam-semibold">القانون الجنائي</h3>
+                            <p class="lexend-deca-regular">افهم حقوقك والخيارات القانونية في القضايا الجنائية.</p>
+                            <button class="btn btn-secondary lexend-deca-regular"
+                                onclick="selectIssue('criminal')">اختيار</button>
+                        </div>
+
+                        <div class="issue-card">
+                            <div class="issue-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <h3 class="kufam-semibold">قانون الأسرة</h3>
+                            <p class="lexend-deca-regular">احصل على المساعدة في المسائل القانونية المتعلقة بالأسرة
+                                والنزاعات.</p>
+                            <button class="btn btn-secondary lexend-deca-regular"
+                                onclick="selectIssue('family')">اختيار</button>
+                        </div>
+
+                        <div class="issue-card">
+                            <div class="issue-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h3 class="kufam-semibold">قانون الملكية</h3>
+                            <p class="lexend-deca-regular">حل النزاعات العقارية والقضايا القانونية المتعلقة بالعقارات.
+                            </p>
+                            <button class="btn btn-secondary lexend-deca-regular"
+                                onclick="selectIssue('property')">اختيار</button>
+                        </div>
+
+                        <div class="issue-card">
+                            <div class="issue-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h3 class="kufam-semibold">قانون الأعمال</h3>
+                            <p class="lexend-deca-regular">احصل على إرشادات حول العقود التجارية والشؤون المؤسسية.</p>
+                            <button class="btn btn-secondary lexend-deca-regular"
+                                onclick="selectIssue('business')">اختيار</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="chat-section" id="chatSection" style="display: none;">
+                <div class="container">
+                    <div class="chat-container">
+                        <h2 class="chat-title kufam-bold">تواصل مع مساعدنا القانوني الذكي</h2>
+                        <div class="chat-box" id="chatBox">
+                            <div class="chat-message ai-message lexend-deca-regular">
+                                مرحباً! أنا مساعدك القانوني الذكي. كيف يمكنني مساعدتك اليوم؟
+                            </div>
+                        </div>
+                        <div class="chat-input-area">
+                            <input type="text" id="userInput" placeholder="اكتب سؤالك هنا..."
+                                class="lexend-deca-regular">
+                            <button id="sendButton" class="lexend-deca-regular">إرسال</button>
+                        </div>
+                        <p class="chat-disclaimer lexend-deca-regular">
+                            <!-- ملاحظة: هذه المحادثة الذكية هي لأغراض إعلامية فقط ولا تشكل نصيحة قانونية. -->
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="main-footer">
+            <div class="container footer-container">
+                <div class="footer-col footer-col-logo">
+                    <img src="assets/images/logo.png" alt="شعار ميزان في التذييل" class="footer-logo-image">
+                    <span class="logo-text footer-logo-text ruwudu-bold">ميزان</span>
+                    <p class="footer-copyright lexend-deca-regular">© 2024-2025 ميزان. جميع الحقوق محفوظة.</p>
+                </div>
+                <div class="footer-col footer-col-links">
+                    <h4 class="footer-heading kufam-semibold">روابط</h4>
+                    <ul>
+                        <li><a href="#" class="lexend-deca-regular">الأشخاص</a></li>
+                        <li><a href="#" class="lexend-deca-regular">وسائل التواصل الاجتماعي</a></li>
+                        <li><a href="#" class="lexend-deca-regular">العدادات</a></li>
+                        <li><a href="contact-ar.html" class="lexend-deca-regular">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-col-company">
+                    <h4 class="footer-heading kufam-semibold">الشركة</h4>
+                    <ul>
+                        <li><a href="#" class="lexend-deca-regular">الشروط والأحكام</a></li>
+                        <li><a href="#" class="lexend-deca-regular">سياسة الخصوصية</a></li>
+                        <li><a href="about-ar.html" class="lexend-deca-regular">من نحن</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-col-contact">
+                    <h4 class="footer-heading kufam-semibold">تواصل معنا</h4>
+                    <ul>
+                        <li>
+                            <p class="lexend-deca-regular">الجلفة، الجزائر</p>
+                        </li>
+                        <li>
+                            <p class="lexend-deca-regular">+213 783 308 435</p>
+                        </li>
+                        <li><a href="mailto:info@mezan.net" class="lexend-deca-regular">info@mezan.net</a></li>
+                    </ul>
+                </div>
+                <div class="footer-disclaimer lexend-deca-regular">
+                    <strong class="kufam-semibold">تنويه:</strong> يقدم ميزان حاليا معلومات عامة فقط بناءً على القانون
+                    الجزائري وليس بديلاً عن النصيحة القانونية المهنية من محامٍ مؤهل. استشر محامياً متخصصاً لحالتك
+                    الخاصة.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/nav-script.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/select-issue-chat.js"></script>
+</body>
+
+</html>

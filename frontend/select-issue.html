@@ -1,24 +1,22 @@
 <!-- frontend/select-issue.html -->
 <!DOCTYPE html>
-<html lang="en"> <!-- Or your primary language: ar/fr -->
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mezan - AI Legal Chat</title>
-    <!-- Poppins Font from Google Fonts -->
+    <title>Mezan - Select Your Issue</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <div class="page-wrapper">
-
         <header class="main-header">
-            <!-- Copy the exact header structure from index.html -->
             <div class="container header-container">
                 <div class="logo-container">
                     <a href="index.html" class="logo-link">
@@ -34,10 +32,10 @@
                         <span class="menu-icon-bar"></span>
                     </button>
                     <ul class="nav-links" id="nav-links">
-                        <li><a href="index.html" class="nav-link">Home</a></li> <!-- Link back to homepage -->
+                        <li><a href="index.html" class="nav-link">Home</a></li>
                         <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
                         <li><a href="select-issue.html" class="nav-link active-page">AI Chat</a></li>
-                        <!-- Mark as active -->
+                        <li><a href="search-page.html" class="nav-link">Search</a></li>
                         <li><a href="about.html" class="nav-link">About Us</a></li>
                         <li><a href="contact.html" class="nav-link">Contact</a></li>
                     </ul>
@@ -45,78 +43,144 @@
                 <div class="auth-buttons">
                     <a href="#login" class="btn btn-login">Login</a>
                     <a href="#signup" class="btn btn-signup">Sign up</a>
+                    <a href="select-issue-ar.html" class="btn btn-lang">العربية</a>
                 </div>
             </div>
         </header>
 
         <main>
-            <!-- Category Selection Section -->
-            <section class="category-selection-section">
-                <div class="container category-selection-container">
-                    <div class="category-selection-header">
-                        <!-- Headings matching Image 3 -->
-                        <span class="subheading">Welcome to Mezan's Legal Consultation.</span>
-                        <h1 class="section-heading">We're here to provide you with expert guidance for your legal case.
-                        </h1>
-                        <p class="section-description">To best assist you, please select the category that best fits
-                            your situation.</p>
-                    </div>
+            <section class="select-issue-section">
+                <div class="container">
+                    <h1 class="section-title">Select Your Legal Issue</h1>
+                    <p class="section-description">Choose the category that best matches your legal concern</p>
 
-                    <!-- Category Buttons Grid (matching Image 3 layout) -->
-                    <div class="issue-grid" id="issue-grid">
-                        <button class="issue-card" data-category="Accident Law">
-                            <h2>Accident Law</h2>
-                        </button>
-                        <button class="issue-card" data-category="Divorce Law">
-                            <h2>Divorce Law</h2>
-                        </button>
-                        <button class="issue-card" data-category="Criminal Law">
-                            <h2>Criminal Law</h2>
-                        </button>
-                        <button class="issue-card" data-category="Family Law">
-                            <h2>Family Law</h2>
-                        </button>
-                        <button class="issue-card" data-category="Business Law">
-                            <h2>Business Law</h2>
-                        </button>
-                        <button class="issue-card" data-category="Property Law">
-                            <h2>Property Law</h2>
-                        </button>
-                    </div>
+                    <div class="issue-categories">
+                        <div class="issue-card">
+                            <div class="issue-icon">
+                                <i class="fas fa-car-crash"></i>
+                            </div>
+                            <h3>Accident Law</h3>
+                            <p>Get guidance on accident claims, insurance, and compensation.</p>
+                            <button class="btn btn-secondary" onclick="selectIssue('accident')">Select</button>
+                        </div>
 
-                    <!-- Chat Interface Placeholder (This HTML section remains the same as before) -->
-                    <div id="chat-interface" class="chat-container" style="display: none;">
-                        <h2 class="chat-title">Chat about <span id="chat-category-title"></span></h2>
-                        <div id="chat-box" class="chat-box">
-                            <!-- Chat messages will appear here -->
+                        <div class="issue-card">
+                            <div class="issue-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h3>Penal Law</h3>
+                            <p>Get information and guidance on penal offenses and related legal matters.</p>
+                            <button class="btn btn-secondary" onclick="selectIssue('penal')">Select</button>
+                        </div>
+
+                        <div class="issue-card">
+                            <div class="issue-icon">
+                                <i class="fas fa-gavel"></i>
+                            </div>
+                            <h3>Criminal Law</h3>
+                            <p>Understand your rights and legal options in criminal cases.</p>
+                            <button class="btn btn-secondary" onclick="selectIssue('criminal')">Select</button>
+                        </div>
+
+                        <div class="issue-card">
+                            <div class="issue-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <h3>Family Law</h3>
+                            <p>Get help with family-related legal matters and disputes.</p>
+                            <button class="btn btn-secondary" onclick="selectIssue('family')">Select</button>
+                        </div>
+
+                        <div class="issue-card">
+                            <div class="issue-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h3>Property Law</h3>
+                            <p>Resolve property disputes and real estate legal issues.</p>
+                            <button class="btn btn-secondary" onclick="selectIssue('property')">Select</button>
+                        </div>
+
+                        <div class="issue-card">
+                            <div class="issue-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h3>Business Law</h3>
+                            <p>Get guidance on business contracts and corporate matters.</p>
+                            <button class="btn btn-secondary" onclick="selectIssue('business')">Select</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="chat-section" id="chatSection" style="display: none;">
+                <div class="container">
+                    <div class="chat-container">
+                        <h2 class="chat-title">Chat with Our AI Legal Assistant</h2>
+                        <div class="chat-box" id="chatBox">
+                            <div class="chat-message ai-message">
+                                Hello! I'm your AI legal assistant. How can I help you today?
+                            </div>
                         </div>
                         <div class="chat-input-area">
-                            <input type="text" id="user-input" placeholder="Ask your question here...">
-                            <button id="send-button">Send</button>
+                            <input type="text" id="userInput" placeholder="Type your question here...">
+                            <button onclick="sendMessage()">Send</button>
                         </div>
-                        <p class="chat-disclaimer"><small><strong>Important:</strong> This AI chat provides general
-                                information for educational purposes only and is NOT legal advice. Consult a qualified
-                                Algerian lawyer for your specific situation.</small></p>
-                        <!-- Button to go back to category selection -->
-                        <button id="back-to-categories" class="btn btn-secondary" style="margin-top: 20px;">Back to
-                            Categories</button>
+                        <p class="chat-disclaimer">
+                            Note: This AI chat is for informational purposes only and does not constitute legal advice.
+                        </p>
                     </div>
-
                 </div>
-                <!-- Background Gradient/Effect Pseudo-element handled by CSS -->
             </section>
         </main>
 
-        <!-- Footer Content (Copy from index.html once done) -->
         <footer class="main-footer">
-            <!-- Footer Content Placeholder -->
+            <div class="container footer-container">
+                <div class="footer-col footer-col-logo">
+                    <img src="assets/images/logo.png" alt="Mezan Footer Logo" class="footer-logo-image">
+                    <span class="logo-text footer-logo-text">MEZAN</span>
+                    <p class="footer-copyright">© 2023-2024 Mezan. All rights reserved.</p>
+                </div>
+                <div class="footer-col footer-col-links">
+                    <h4 class="footer-heading">Links</h4>
+                    <ul>
+                        <li><a href="#">Oversons</a></li>
+                        <li><a href="#">Social Media</a></li>
+                        <li><a href="#">Counters</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-col-company">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-col-contact">
+                    <h4 class="footer-heading">Get In Touch</h4>
+                    <ul>
+                        <li>
+                            <p>Djelfa, Algeria</p>
+                        </li>
+                        <li>
+                            <p>+213 5xx xxx xxx</p>
+                        </li>
+                        <li><a href="mailto:info@mezan.net">info@mezan.net</a></li>
+                    </ul>
+                </div>
+                <div class="footer-disclaimer">
+                    <strong>Disclaimer:</strong> Mezan provides general information only based on Algerian law and is
+                    not a substitute for professional legal advice from a qualified lawyer. Consult with a legal
+                    professional for your specific situation.
+                </div>
+            </div>
         </footer>
+    </div>
 
-    </div> <!-- End .page-wrapper -->
-
-    <!-- Link both JS files -->
     <script src="js/nav-script.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/select-issue-chat.js"></script>
 </body>
 
 </html>

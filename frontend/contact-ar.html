@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتصل بنا - ميزان</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kufam:ital,wght@0,400..900;1,400..900&family=Lexend+Deca:wght@100..900&family=Ruwudu:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/rtl.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="main-header">
+            <div class="container header-container">
+                <div class="logo-container">
+                    <a href="index-ar.html" class="logo-link">
+                        <img src="assets/images/logo.png" alt="شعار ميزان" class="logo-icon">
+                        <span class="logo-text ruwudu-bold">ميزان</span>
+                    </a>
+                </div>
+                <nav class="navbar">
+                    <button id="menu-toggle" class="menu-toggle" aria-label="تبديل قائمة التنقل" aria-expanded="false">
+                        <span class="menu-icon-bar"></span>
+                        <span class="menu-icon-bar"></span>
+                        <span class="menu-icon-bar"></span>
+                    </button>
+                    <ul class="nav-links" id="nav-links">
+                        <li><a href="index-ar.html" class="nav-link lexend-deca-regular">الرئيسية</a></li>
+                        <li><a href="how-it-works-ar.html" class="nav-link lexend-deca-regular">كيف يعمل</a></li>
+                        <li><a href="select-issue-ar.html" class="nav-link lexend-deca-regular">المحادثة الذكية</a></li>
+                        <li><a href="search-page-ar.html" class="nav-link lexend-deca-regular">البحث</a></li>
+                        <li><a href="about-ar.html" class="nav-link lexend-deca-regular">من نحن</a></li>
+                        <li><a href="contact-ar.html" class="nav-link lexend-deca-regular active-page">اتصل بنا</a></li>
+                    </ul>
+                </nav>
+                <div class="lang-switch">
+                    <a href="contact.html" class="btn btn-lang lexend-deca-regular">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="contact-section">
+                <div class="container">
+                    <h1 class="section-title kufam-bold">اتصل بنا</h1>
+                    <p class="section-description lexend-deca-regular">نحن هنا لمساعدتك. لا تتردد في التواصل معنا لأي
+                        استفسارات أو اقتراحات.</p>
+
+                    <div class="contact-content">
+                        <div class="contact-info">
+                            <div class="info-card">
+                                <i class="fas fa-map-marker-alt info-icon"></i>
+                                <h3 class="info-title kufam-semibold">العنوان</h3>
+                                <p class="info-text lexend-deca-regular">الجلفة، الجزائر</p>
+                            </div>
+
+                            <div class="info-card">
+                                <i class="fas fa-phone info-icon"></i>
+                                <h3 class="info-title kufam-semibold">الهاتف</h3>
+                                <p class="info-text lexend-deca-regular">+213 735 308 435</p>
+                            </div>
+
+                            <div class="info-card">
+                                <i class="fas fa-envelope info-icon"></i>
+                                <h3 class="info-title kufam-semibold">البريد الإلكتروني</h3>
+                                <p class="info-text lexend-deca-regular">info@mezan.net</p>
+                            </div>
+
+                            <div class="info-card">
+                                <i class="fas fa-clock info-icon"></i>
+                                <h3 class="info-title kufam-semibold">ساعات العمل</h3>
+                                <p class="info-text lexend-deca-regular">السبت - الخميس: 9:00 صباحاً - 5:00 مساءً</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-form-container">
+                            <h2 class="form-title kufam-semibold">أرسل لنا رسالة</h2>
+                            <form class="contact-form" id="contactForm">
+                                <div class="form-group">
+                                    <label for="name" class="form-label lexend-deca-regular">الاسم الكامل</label>
+                                    <input type="text" id="name" name="name" class="form-input lexend-deca-regular"
+                                        required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email" class="form-label lexend-deca-regular">البريد الإلكتروني</label>
+                                    <input type="email" id="email" name="email" class="form-input lexend-deca-regular"
+                                        required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="subject" class="form-label lexend-deca-regular">الموضوع</label>
+                                    <input type="text" id="subject" name="subject"
+                                        class="form-input lexend-deca-regular" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="message" class="form-label lexend-deca-regular">الرسالة</label>
+                                    <textarea id="message" name="message" class="form-textarea lexend-deca-regular"
+                                        rows="5" required></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary lexend-deca-regular">إرسال الرسالة</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="map-container">
+                        <h2 class="map-title kufam-semibold">موقعنا</h2>
+                        <div class="map-frame">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d104858.1234567890!2d3.123456!3d34.567890!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDM0JzA0LjQiTiAzwrAwNyc0NS42IkU!5e0!3m2!1sen!2sdz!4v1234567890"
+                                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="main-footer">
+            <div class="container footer-container">
+                <div class="footer-col footer-col-logo">
+                    <img src="assets/images/logo.png" alt="شعار ميزان في التذييل" class="footer-logo-image">
+                    <span class="logo-text footer-logo-text ruwudu-bold">ميزان</span>
+                    <p class="footer-copyright lexend-deca-regular">© 2023-2024 ميزان. جميع الحقوق محفوظة.</p>
+                </div>
+                <div class="footer-col footer-col-links">
+                    <h4 class="footer-heading kufam-semibold">روابط</h4>
+                    <ul>
+                        <li><a href="#" class="lexend-deca-regular">الأشخاص</a></li>
+                        <li><a href="#" class="lexend-deca-regular">وسائل التواصل الاجتماعي</a></li>
+                        <li><a href="#" class="lexend-deca-regular">العدادات</a></li>
+                        <li><a href="contact-ar.html" class="lexend-deca-regular">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-col-company">
+                    <h4 class="footer-heading kufam-semibold">الشركة</h4>
+                    <ul>
+                        <li><a href="#" class="lexend-deca-regular">الشروط والأحكام</a></li>
+                        <li><a href="#" class="lexend-deca-regular">سياسة الخصوصية</a></li>
+                        <li><a href="about-ar.html" class="lexend-deca-regular">من نحن</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-col-contact">
+                    <h4 class="footer-heading kufam-semibold">تواصل معنا</h4>
+                    <ul>
+                        <li>
+                            <p class="lexend-deca-regular">الجلفة، الجزائر</p>
+                        </li>
+                        <li>
+                            <p class="lexend-deca-regular">+213 735 308 435</p>
+                        </li>
+                        <li><a href="mailto:info@mezan.net" class="lexend-deca-regular">info@mezan.net</a></li>
+                    </ul>
+                </div>
+                <div class="footer-disclaimer lexend-deca-regular">
+                    <strong class="kufam-semibold">تنويه:</strong> يقدم ميزان حاليا معلومات عامة فقط بناءً على القانون
+                    الجزائري وليس بديلاً عن النصيحة القانونية المهنية من محامٍ مؤهل. استشر محامياً متخصصاً لحالتك
+                    الخاصة.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/nav-script.js"></script>
+    <script src="js/language.js"></script>
+</body>
+
+</html>

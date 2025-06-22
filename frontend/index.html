@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mezan - Your Legal Consultant</title>
-    <!-- Poppins Font from Google Fonts -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
@@ -32,10 +32,11 @@
                         <span class="menu-icon-bar"></span>
                     </button>
                     <ul class="nav-links" id="nav-links">
-                        <li><a href="#platform" class="nav-link">Platform</a></li>
-                        <li><a href="#services" class="nav-link">Services</a></li>
+                        <li><a href="index.html" class="nav-link active-page">Home</a></li>
+                        <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+                        <li><a href="select-issue.html" class="nav-link">AI Chat</a></li>
                         <li><a href="search-page.html" class="nav-link">Search</a></li>
-                        <li><a href="#team" class="nav-link">Team</a></li>
+                        <li><a href="about.html" class="nav-link">About Us</a></li>
                         <li><a href="contact.html" class="nav-link">Contact</a></li>
                     </ul>
                 </nav>
@@ -43,120 +44,101 @@
                     <a href="#login" class="btn btn-login">Login</a>
                     <a href="#signup" class="btn btn-signup">Sign up</a>
                 </div>
+                <div class="lang-switch">
+                    <a href="index-ar.html" class="btn btn-lang">العربية</a>
+                </div>
             </div>
         </header>
 
         <main>
             <section class="hero-section">
                 <div class="container hero-container">
-                    <div class="hero-content-left">
-                        <span class="hero-subheading">Research platform</span>
-                        <!-- Fixed typo based on previous observation -->
-                        <h1 class="hero-heading">Your Legal Consultant</h1>
-                        <p class="hero-paragraph">Empowering your Legal Journey: Navigating Complexity with Expert
-                            Consulting</p>
+                    <div class="hero-content">
+                        <h1 class="hero-heading">Your AI-Powered Legal Assistant</h1>
+                        <p class="hero-description">Get instant answers to your legal questions with our advanced AI
+                            technology. Mezan provides accurate, reliable legal information based on Algerian law.</p>
                         <div class="hero-buttons">
-                            <!-- Link to Image 2 search page -->
-                            <a href="search-page.html" class="btn btn-hero">Search</a>
-                            <!-- Link to Image 3 category/chat page -->
-                            <a href="select-issue.html" class="btn btn-hero">Consultant</a>
+                            <a href="select-issue.html" class="btn btn-primary lexend-deca-regular">Get Started</a>
+                            <a href="how-it-works.html" class="btn btn-secondary lexend-deca-regular">Learn More</a>
                         </div>
                     </div>
-                    <div class="hero-graphic-container">
-                        <!-- Make sure this image file is in assets/images/ -->
-                        <img src="assets/images/Removal-25.png"
-                            alt="Large gold graphic representing law, like a building or monument"
-                            class="hero-graphic-image">
+                    <div class="hero-image">
+                        <img src="assets/images/Removal-25.png" alt="AI Legal Assistant Illustration"
+                            class="hero-illustration">
                     </div>
                 </div>
-                <!-- Background Gradient/Effect Pseudo-element handled by CSS -->
-                <!-- You might need more complex background elements depending on the exact Figma background -->
             </section>
 
-            </section> <!-- End of Hero Section -->
-
-            <!-- Start of New Section (Example: Features or How it Works Snippet) -->
             <section class="features-section">
-                <div class="container features-container">
-                    <!-- Reusing section-heading class for main title -->
-                    <h2 class="section-heading" style="text-align: center; margin-bottom: 40px;">Key Features of Mezan
-                    </h2>
+                <div class="container">
+                    <h2 class="section-heading">Why Choose Mezan?</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h3 class="feature-title">AI-Powered Legal Assistant</h3>
+                            <p class="feature-description">Get instant answers to your legal questions with our advanced
+                                AI technology</p>
+                        </div>
 
-                    <!-- Example Feature Grid -->
-                    <div class="feature-grid">
-                        <div class="feature-item">
-                            <h3 class="feature-title">AI-Powered Guidance</h3>
-                            <p>Leverage AI trained on Algerian legal documents for quick insights.</p>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3 class="feature-title">Instant Answers</h3>
+                            <p class="feature-description">Receive immediate responses to your legal queries, 24/7</p>
                         </div>
-                        <div class="feature-item">
-                            <h3 class="feature-title">Knowledge Base (JORADP)</h3>
-                            <p>Answers are grounded in the official Algerian National Journal.</p>
-                        </div>
-                        <div class="feature-item">
-                            <h3 class="feature-title">Actionable Steps</h3>
-                            <p>Receive potential next steps for your legal questions.</p>
-                        </div>
-                        <div class="feature-item">
-                            <h3 class="feature-title">Easy Access</h3>
-                            <p>Legal information made more accessible to everyone.</p>
-                        </div>
-                    </div>
 
-                    <!-- Link to the full How It Works page -->
-                    <div style="text-align: center; margin-top: 40px;">
-                        <a href="how-it-works.html" class="btn btn-hero">Learn More About How It Works</a>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3 class="feature-title">Secure Platform</h3>
+                            <p class="feature-description">Your data is protected with enterprise-grade security
+                                measures</p>
+                        </div>
                     </div>
                 </div>
             </section>
-            <!-- End of New Section -->
-
         </main>
 
-        <!-- Footer Content -->
         <footer class="main-footer">
             <div class="container footer-container">
                 <div class="footer-col footer-col-logo">
-                    <!-- Reuse the logo icon image -->
                     <img src="assets/images/logo.png" alt="Mezan Footer Logo" class="footer-logo-image">
-                    <span class="logo-text footer-logo-text">MEZAN</span> <!-- Reuse logo text class -->
+                    <span class="logo-text footer-logo-text">MEZAN</span>
                     <p class="footer-copyright">© 2023-2024 Mezan. All rights reserved.</p>
                 </div>
-
                 <div class="footer-col footer-col-links">
                     <h4 class="footer-heading">Links</h4>
                     <ul>
-                        <!-- Replace # with actual links later -->
                         <li><a href="#">Oversons</a></li>
                         <li><a href="#">Social Media</a></li>
                         <li><a href="#">Counters</a></li>
-                        <li><a href="contact.html">Contact</a></li> <!-- Link to contact page -->
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-col footer-col-company">
                     <h4 class="footer-heading">Company</h4>
                     <ul>
-                        <li><a href="#">Terms & Conditions</a></li> <!-- Create these pages later -->
+                        <li><a href="#">Terms & Conditions</a></li>
                         <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="about.html">About Us</a></li> <!-- Link to About Us page -->
+                        <li><a href="about.html">About Us</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-col footer-col-contact">
                     <h4 class="footer-heading">Get In Touch</h4>
                     <ul>
-                        <!-- Replace with your actual details -->
                         <li>
                             <p>Djelfa, Algeria</p>
                         </li>
                         <li>
-                            <p>+213 735 308 435</p>
+                            <p>+213 5xx xxx xxx</p>
                         </li>
-                        <li><a href="messikaoussama@gmail.com">messikaoussama@gmail.com</a></li> <!-- Your email -->
+                        <li><a href="mailto:info@mezan.net">info@mezan.net</a></li>
                     </ul>
                 </div>
-
-                <!-- Disclaimer (often added at bottom or just in footer) -->
                 <div class="footer-disclaimer">
                     <strong>Disclaimer:</strong> Mezan provides general information only based on Algerian law and is
                     not a substitute for professional legal advice from a qualified lawyer. Consult with a legal
@@ -165,11 +147,10 @@
             </div>
         </footer>
 
-    </div> <!-- End .page-wrapper -->
+    </div>
 
-    <!-- Link the navigation JS file at the end of the body -->
     <script src="js/nav-script.js"></script>
-    <!-- Link other JS files (like script.js for API interaction) on specific pages -->
+    <script src="js/script.js"></script>
 </body>
 
 </html>

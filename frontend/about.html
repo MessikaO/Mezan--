@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html lang="en"> <!-- Or your primary language: ar/fr -->
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Mezan - Mezan</title>
-    <!-- Poppins Font from Google Fonts -->
+    <title>Mezan - About Us</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <div class="page-wrapper">
-
         <header class="main-header">
-            <!-- Copy the exact header HTML structure from index.html -->
             <div class="container header-container">
                 <div class="logo-container">
                     <a href="index.html" class="logo-link">
@@ -36,7 +34,8 @@
                         <li><a href="index.html" class="nav-link">Home</a></li>
                         <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
                         <li><a href="select-issue.html" class="nav-link">AI Chat</a></li>
-                        <li><a href="about.html" class="nav-link active-page">About Us</a></li> <!-- Mark as active -->
+                        <li><a href="search-page.html" class="nav-link">Search</a></li>
+                        <li><a href="about.html" class="nav-link active-page">About Us</a></li>
                         <li><a href="contact.html" class="nav-link">Contact</a></li>
                     </ul>
                 </nav>
@@ -48,32 +47,132 @@
         </header>
 
         <main>
-            <section class="page-content">
+            <section class="about-hero">
                 <div class="container">
-                    <!-- Page Specific Content Goes Here -->
-                    <h1 class="section-heading" style="text-align: center; margin-bottom: 30px;">About Mezan</h1>
-                    <!-- Add your detailed About Us text content here -->
-                    <p>Mezan is a Master's graduating project developed to explore the potential of Artificial
-                        Intelligence...</p>
-                    <h2>Our Mission</h2>
-                    <p>The primary goal of this MVP...</p>
-                    <h2>Technology Stack (MVP)</h2>
-                    <ul>
-                        <li>Frontend: HTML, CSS, JavaScript</li>
-                        <li>Backend: Python with Flask framework</li>
-                        <!-- Add other tech details -->
-                    </ul>
-                    <h2>The Team</h2>
-                    <p>[Your Name/Team Name Here]</p>
-                    <h2>Future Scope</h2>
-                    <p>While this is an MVP, potential future enhancements...</p>
-                    <!-- End of Page Specific Content -->
+                    <h1 class="section-title">About Mezan</h1>
+                    <p class="section-description">Revolutionizing Legal Assistance Through AI Technology</p>
+                </div>
+            </section>
+
+            <section class="about-mission">
+                <div class="container">
+                    <div class="mission-content">
+                        <div class="mission-text">
+                            <h2>Our Mission</h2>
+                            <p>At Mezan, we're dedicated to making legal assistance accessible to everyone. Our
+                                AI-powered
+                                platform combines cutting-edge technology with legal expertise to provide reliable,
+                                instant
+                                guidance for your legal concerns.</p>
+                            <p>We believe that understanding your legal rights and options shouldn't be complicated or
+                                expensive. That's why we've created an intuitive platform that puts legal knowledge at
+                                your
+                                fingertips.</p>
+                        </div>
+                        <div class="mission-image">
+                            <img src="assets/images/ai for law2.png" alt="AI Legal Technology">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-values">
+                <div class="container">
+                    <h2 class="section-title">Our Core Values</h2>
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Trust & Reliability</h3>
+                            <p>We maintain the highest standards of accuracy and reliability in our legal information
+                                and AI
+                                responses.</p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Accessibility</h3>
+                            <p>We believe legal assistance should be available to everyone, regardless of their
+                                background
+                                or circumstances.</p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h3>Innovation</h3>
+                            <p>We continuously innovate to provide the best possible legal assistance through
+                                cutting-edge
+                                technology.</p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3>User-Centric</h3>
+                            <p>We prioritize user experience and satisfaction in everything we do.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-team">
+                <div class="container">
+                    <h2 class="section-title">Our Team</h2>
+                    <div class="team-grid">
+                        <div class="team-card">
+                            <div class="team-image">
+                                <img src="assets/images/team/team1.jpg" alt="Team Member">
+                            </div>
+                            <h3>John Doe</h3>
+                            <p class="team-role">CEO & Founder</p>
+                            <p class="team-bio">With over 15 years of experience in legal technology, John leads our
+                                team
+                                with vision and expertise.</p>
+                        </div>
+
+                        <div class="team-card">
+                            <div class="team-image">
+                                <img src="assets/images/team/team2.jpg" alt="Team Member">
+                            </div>
+                            <h3>Jane Smith</h3>
+                            <p class="team-role">Head of AI Development</p>
+                            <p class="team-bio">Jane brings her expertise in machine learning and natural language
+                                processing to create our advanced AI system.</p>
+                        </div>
+
+                        <div class="team-card">
+                            <div class="team-image">
+                                <img src="assets/images/team/team3.jpg" alt="Team Member">
+                            </div>
+                            <h3>Michael Johnson</h3>
+                            <p class="team-role">Legal Director</p>
+                            <p class="team-bio">Michael ensures the accuracy and reliability of our legal information
+                                and
+                                AI responses.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-cta">
+                <div class="container">
+                    <h2>Ready to Experience the Future of Legal Assistance?</h2>
+                    <p>Join thousands of users who trust Mezan for their legal guidance needs.</p>
+                    <div class="cta-buttons">
+                        <a href="select-issue.html" class="btn btn-primary">Get Started</a>
+                        <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+                    </div>
                 </div>
             </section>
         </main>
 
         <footer class="main-footer">
-            <!-- Copy the exact footer HTML structure from index.html -->
             <div class="container footer-container">
                 <div class="footer-col footer-col-logo">
                     <img src="assets/images/logo.png" alt="Mezan Footer Logo" class="footer-logo-image">
@@ -116,11 +215,10 @@
                 </div>
             </div>
         </footer>
+    </div>
 
-    </div> <!-- End .page-wrapper -->
-
-    <!-- Link the navigation JS file -->
     <script src="js/nav-script.js"></script>
+    <script src="js/language.js"></script>
 </body>
 
 </html>
